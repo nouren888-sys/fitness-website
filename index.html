@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cap / Nourhan Elmatony | كابتن نورهان الماطونى - تدريب أونلاين</title>
+    <meta name="description" content="كابتن نورهان الماطونى - مدربة فيتنس أونلاين وأخصائية تصميم برامج تدريبية وأنظمة غذائية مخصصة. ابدأ رحلة تغيير جسمك وصحتك الآن.">
+    <style>
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #0a0a0a;
+            --bg-card: #111111;
+            --bg-card-hover: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-muted: #888888;
+            --accent: #f5c842;
+            --accent-glow: #f5c842;
+            --accent-dark: #c49d20;
+            --border: #2a2a2a;
+            --border-light: #333333;
+            --danger: #e74c3c;
+            --success: #2ecc71;
+            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.5);
+            --shadow-glow: 0 0 30px rgba(245, 200, 66, 0.15);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --transition-fast: 0.2s ease;
+            --transition-smooth: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-arabic: 'Segoe UI', 'Tajawal', 'Cairo', 'Almarai', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: var(--font-arabic);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Selection */
+        ::selection {
+            background: var(--accent);
+            color: #000;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* ============ HEADER / NAVBAR ============ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.82);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all var(--transition-smooth);
+            padding: 0 20px;
+            height: 70px;
+        }
+
+        .header.scrolled {
+            background: rgba(0, 0, 0, 0.94);
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.7);
+            border-bottom-color: rgba(245, 200, 66, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            gap: 20px;
+        }
+
+        .brand-name {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color var(--transition-fast);
+        }
+        .brand-name:hover {
+            color: var(--accent);
+        }
+        .brand-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.1rem;
+            color: #000;
+            flex-shrink: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 10px 16px;
+            border-radius: 25px;
+            transition: all var(--transition-fast);
+            white-space: nowrap;
+            position: relative;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .nav-links a.active {
+            color: var(--accent);
+            background: rgba(245, 200, 66, 0.08);
+        }
+
+        .btn-login {
+            background: transparent;
+            color: #fff;
+            border: 1.5px solid var(--accent);
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            white-space: nowrap;
+            transition: all var(--transition-smooth);
+            font-family: var(--font-arabic);
+            letter-spacing: 0.3px;
+        }
+        .btn-login:hover {
+            background: var(--accent);
+            color: #000;
+            box-shadow: 0 0 25px rgba(245, 200, 66, 0.35);
+            border-color: var(--accent);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+            flex-direction: column;
+            gap: 5px;
+            width: 36px;
+        }
+        .mobile-toggle span {
+            display: block;
+            height: 2.5px;
+            background: #fff;
+            border-radius: 2px;
+            transition: all var(--transition-smooth);
+            width: 100%;
+        }
+        .mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Mobile Nav */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 280px;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.97);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 999;
+            padding: 90px 30px 30px;
+            flex-direction: column;
+            gap: 8px;
+            border-left: 1px solid var(--border);
+            transform: translateX(100%);
+            transition: transform var(--transition-smooth);
+        }
+        .mobile-nav.open {
+            transform: translateX(0);
+        }
+        .mobile-nav a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 14px 16px;
+            border-radius: var(--radius-md);
+            transition: all var(--transition-fast);
+            display: block;
+        }
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .mobile-nav .btn-login-mobile {margin-top: 16px;
+            background: var(--accent);
+            color: #000;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: center;
+            width: 100%;
+            font-family: var(--font-arabic);
+        }
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 998;
+        }
+        .mobile-overlay.show {
+            display: block;
+        }
+
+        /* ============ HERO SECTION ============ */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 24px 60px;
+            overflow: hidden;
+            background: #000;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="%23111"/><stop offset="100%" stop-color="%23000"/></linearGradient></defs><rect fill="url(%23g)" width="800" height="600"/><circle cx="150" cy="100" r="200" fill="none" stroke="%23222" stroke-width="0.5" opacity="0.5"/><circle cx="650" cy="450" r="250" fill="none" stroke="%231a1a1a" stroke-width="0.5" opacity="0.4"/><line x1="0" y1="300" x2="800" y2="300" stroke="%23111" stroke-width="0.3" opacity="0.3"/><line x1="400" y1="0" x2="400" y2="600" stroke="%23111" stroke-width="0.3" opacity="0.3"/></svg>') center/cover no-repeat;
+            opacity: 0.6;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.85) 70%, #000 100%);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 750px;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(245, 200, 66, 0.12);
+            color: var(--accent);
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border: 1px solid rgba(245, 200, 66, 0.25);
+            animation: fadeInUp 0.7s ease forwards;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.4rem);
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 16px;
+            animation: fadeInUp 0.7s ease 0.1s forwards;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+        .hero h1 .highlight {
+            color: var(--accent);
+            display: inline-block;
+        }
+        .hero-sub {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: #ccc;
+            margin-bottom: 32px;
+            animation: fadeInUp 0.7s ease 0.2s forwards;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+        .btn-cta {
+            display: inline-block;
+            background: var(--accent);
+            color: #000;
+            padding: 16px 40px;
+            border-radius: 30px;
+            font-size: 1.15rem;
+            font-weight: 800;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all var(--transition-smooth);
+            box-shadow: 0 8px 30px rgba(245, 200, 66, 0.25);
+            letter-spacing: 0.5px;
+            animation: fadeInUp 0.7s ease 0.3s forwards;opacity: 0;
+            animation-fill-mode: forwards;
+            font-family: var(--font-arabic);
+        }
+        .btn-cta:hover {
+            background: #ffe066;
+            box-shadow: 0 12px 40px rgba(245, 200, 66, 0.45);
+            transform: translateY(-3px);
+        }
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounceDown 2s infinite;
+        }
+        .hero-scroll-indicator span {
+            display: block;
+            width: 30px;
+            height: 30px;
+            border-right: 2px solid var(--accent);
+            border-bottom: 2px solid var(--accent);
+            transform: rotate(45deg);
+            opacity: 0.7;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes bounceDown {
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(12px);
+            }
+        }
+
+        /* ============ SECTIONS GENERAL ============ */
+        .section {
+            padding: 80px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            font-weight: 900;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+        .section-title .accent {
+            color: var(--accent);
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #999;
+            font-size: 1rem;
+            margin-bottom: 50px;
+        }
+
+        /* ============ ABOUT SECTION ============ */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+            align-items: center;
+            background: var(--bg-card);
+            border-radius: var(--radius-xl);
+            padding: 40px;
+            border: 1px solid var(--border);
+            transition: all var(--transition-smooth);
+        }
+        .about-grid:hover {
+            border-color: rgba(245, 200, 66, 0.2);
+            box-shadow: var(--shadow-glow);
+        }
+        .about-photo-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .about-photo {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 40px rgba(245, 200, 66, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+        .about-photo-inner {
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--accent);
+            opacity: 0.9;
+        }
+        .about-photo-ring {
+            position: absolute;
+            inset: -12px;
+            border-radius: 50%;
+            border: 2px dashed rgba(245, 200, 66, 0.3);
+            animation: spinSlow 20s linear infinite;
+        }
+        @keyframes spinSlow {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .about-text h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;color: #fff;
+        }
+        .about-text p {
+            color: #bbb;
+            font-size: 1.05rem;
+            line-height: 1.9;
+        }
+        .about-highlights {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .about-highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+        .about-highlight-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        /* ============ SERVICES SECTION ============ */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .service-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 35px 28px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all var(--transition-smooth);
+            cursor: default;
+        }
+        .service-card:hover {
+            border-color: rgba(245, 200, 66, 0.3);
+            box-shadow: var(--shadow-glow);
+            transform: translateY(-5px);
+            background: var(--bg-card-hover);
+        }
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 18px;
+            display: block;
+        }
+        .service-card h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .service-card p {
+            color: #999;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ============ PRICING SECTION ============ */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .pricing-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 32px 24px;
+            text-align: center;
+            border: 1.5px solid var(--border);
+            transition: all var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+        .pricing-card.featured {
+            border-color: var(--accent);
+            box-shadow: 0 0 35px rgba(245, 200, 66, 0.12);
+            transform: scale(1.03);
+        }
+        .pricing-card.featured::before {
+            content: 'الأكثر طلباً';
+            position: absolute;
+            top: 16px;
+            left: -30px;
+            background: var(--accent);
+            color: #000;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 5px 40px;
+            transform: rotate(-45deg);
+            letter-spacing: 0.5px;
+        }
+        .pricing-card:hover {
+            border-color: rgba(245, 200, 66, 0.5);
+            box-shadow: var(--shadow-glow);
+            transform: translateY(-6px);
+            background: var(--bg-card-hover);
+        }
+        .pricing-card.featured:hover {
+            transform: scale(1.03) translateY(-6px);
+        }
+        .pricing-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .pricing-card h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        .pricing-amount {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--accent);
+            margin: 12px 0 6px;
+        }
+        .pricing-period {
+            color: #888;
+            font-size: 0.85rem;margin-bottom: 16px;
+        }
+        .btn-subscribe {
+            display: inline-block;
+            background: var(--accent);
+            color: #000;
+            padding: 12px 28px;
+            border-radius: 25px;
+            font-weight: 800;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            font-size: 0.95rem;
+            transition: all var(--transition-smooth);
+            font-family: var(--font-arabic);
+            width: 100%;
+            text-align: center;
+        }
+        .btn-subscribe:hover {
+            background: #ffe066;
+            box-shadow: 0 8px 25px rgba(245, 200, 66, 0.4);
+        }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 40px 24px;
+            text-align: center;
+        }
+        .footer-inner {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .footer h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+        .footer p {
+            color: #999;
+            margin-bottom: 16px;
+        }
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: #fff;
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: all var(--transition-smooth);
+            font-family: var(--font-arabic);
+        }
+        .whatsapp-btn:hover {
+            background: #1ebe5b;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            transform: translateY(-2px);
+        }
+        .whatsapp-icon {
+            font-size: 1.4rem;
+        }
+        .footer-bottom {
+            margin-top: 24px;
+            color: #666;
+            font-size: 0.85rem;
+        }
+        .footer-bottom span {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* ============ MODAL (Login/Sign Up) ============ */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition-smooth);
+            padding: 20px;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .modal {
+            background: #111;
+            border-radius: var(--radius-xl);
+            padding: 36px 28px;
+            width: 100%;
+            max-width: 420px;
+            border: 1px solid var(--border);
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            transform: translateY(20px);
+            transition: transform var(--transition-smooth);
+        }
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+        .modal-close {
+            position: absolute;
+            top: 14px;
+            left: 18px;
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: color var(--transition-fast);
+            line-height: 1;
+        }
+        .modal-close:hover {
+            color: #fff;
+        }
+        .modal-tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+        .modal-tab {flex: 1;
+            text-align: center;
+            padding: 14px;
+            cursor: pointer;
+            font-weight: 700;
+            color: #888;
+            border-bottom: 2px solid transparent;
+            transition: all var(--transition-fast);
+            font-family: var(--font-arabic);
+            background: none;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            font-size: 1rem;
+        }
+        .modal-tab.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .modal-form input {
+            padding: 14px 16px;
+            border-radius: var(--radius-md);
+            border: 1.5px solid var(--border);
+            background: #1a1a1a;
+            color: #fff;
+            font-size: 0.95rem;
+            font-family: var(--font-arabic);
+            transition: border-color var(--transition-fast);
+            outline: none;
+        }
+        .modal-form input:focus {
+            border-color: var(--accent);
+        }
+        .modal-form input::placeholder {
+            color: #666;
+        }
+        .btn-submit {
+            background: var(--accent);
+            color: #000;
+            padding: 14px;
+            border-radius: 25px;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            transition: all var(--transition-smooth);
+            font-family: var(--font-arabic);
+            margin-top: 4px;
+        }
+        .btn-submit:hover {
+            background: #ffe066;
+            box-shadow: 0 6px 20px rgba(245, 200, 66, 0.4);
+        }
+        .modal-switch-text {
+            text-align: center;
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 8px;
+        }
+        .modal-switch-text span {
+            color: var(--accent);
+            cursor: pointer;
+            font-weight: 700;
+        }
+        .modal-switch-text span:hover {
+            text-decoration: underline;
+        }
+
+        /* ============ TOAST ============ */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #1a1a1a;
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            z-index: 3000;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            transition: transform var(--transition-smooth);
+            pointer-events: none;
+            font-family: var(--font-arabic);
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+        .toast.success {
+            border-color: var(--success);
+            color: var(--success);
+        }
+        .toast.error {
+            border-color: var(--danger);
+            color: var(--danger);
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 968px) {
+            .nav-links {
+                display: none;
+            }
+            .btn-login.desktop-only {
+                display: none;
+            }
+            .mobile-toggle {
+                display: flex;
+            }
+            .mobile-nav {
+                display: flex;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+                padding: 30px 20px;
+            }
+            .about-photo {
+                width: 170px;
+                height: 170px;
+            }
+            .about-photo-inner {font-size: 3.5rem;
+            }
+            .about-highlights {
+                justify-content: center;
+            }
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+            .pricing-card.featured:hover {
+                transform: translateY(-6px);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                height: 60px;
+                padding: 0 12px;
+            }
+            .brand-name {
+                font-size: 1rem;
+            }
+            .brand-icon {
+                width: 30px;
+                height: 30px;
+                font-size: 0.85rem;
+            }
+            .hero {
+                min-height: 90vh;
+                padding: 80px 16px 40px;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .hero-sub {
+                font-size: 1rem;
+            }
+            .btn-cta {
+                padding: 14px 28px;
+                font-size: 1rem;
+            }
+            .section {
+                padding: 50px 14px;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .pricing-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .pricing-card {
+                padding: 22px 14px;
+            }
+            .pricing-amount {
+                font-size: 1.5rem;
+            }
+            .modal {
+                padding: 24px 16px;
+                margin: 10px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            .brand-name {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="header" id="header">
+        <div class="nav-container">
+            <!-- Brand Name (Right side in RTL) -->
+            <a href="#" class="brand-name" title="الرئيسية">
+                <span class="brand-icon">N</span>
+                Cap / Nourhan Elmatony
+            </a>
+
+            <!-- Navigation Links (Center) -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero" class="active">الرئيسية</a></li>
+                <li><a href="#about">نبذة عني</a></li>
+                <li><a href="#services">الخدمات</a></li>
+                <li><a href="#pricing">باقات الاشتراك</a></li>
+            </ul>
+
+            <!-- Login Button (Left side in RTL) -->
+            <button class="btn-login desktop-only" id="btnLoginOpen" aria-label="تسجيل الدخول / إنشاء حساب">
+                تسجيل الدخول / إنشاء حساب
+            </button>
+
+            <!-- Mobile Toggle -->
+            <button class="mobile-toggle" id="mobileToggle" aria-label="القائمة">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="#hero" class="active">الرئيسية</a>
+        <a href="#about">نبذة عني</a>
+        <a href="#services">الخدمات</a>
+        <a href="#pricing">باقات الاشتراك</a>
+        <button class="btn-login-mobile" id="btnLoginOpenMobile">تسجيل الدخول / إنشاء حساب</button>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-badge">🔥 تدريب أونلاين احترافي</span>
+            <h1>
+                تدريب أونلاين <span class="highlight">🔥</span><br>
+                <span class="highlight">ابدأ رحلة تغيير جسمك وصحتك الآن</span>
+            </h1>
+            <p class="hero-sub">خسّي – ابني عضل – حسّن لياقتك 💪</p>
+            <a href="#pricing" class="btn-cta">احجز مكانك الآن</a>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section class="section" id="about">
+        <h2 class="section-title">نبذة <span class="accent">عني</span></h2>
+        <p class="section-subtitle">تعرف على مدربتك كابتن نورهان الماطونى</p>
+        <div class="about-grid">
+            <div class="about-photo-wrapper">
+                <div class="about-photo">
+                    <div class="about-photo-ring"></div>
+                    <span class="about-photo-inner">N</span>
+                </div>
+            </div>
+            <div class="about-text">
+                <h3>كابتن نورهان الماطونى</h3>
+                <p>
+                    أهلاً بيك، أنا كابتن نورهان الماطونى، مدربة فيتنس أونلاين وأخصائية تصميم برامج تدريبية وأنظمة غذائية مخصصة.
+                    هدفي مش بس إني أساعدك تخس أو تبني عضل، لكن هدفي نغير أسلوب حياتك بالكامل للأفضل ونوصل لأعلى مستويات
+                    اللياقة البدنية والصحة بشكل علمي وعملي يناسب يومك ومستواك.
+                </p>
+                <div class="about-highlights">
+                    <span class="about-highlight-item"><span class="about-highlight-dot"></span> خبرة في التدريب</span>
+                    <span class="about-highlight-item"><span class="about-highlight-dot"></span> متابعة شخصية</span>
+                    <span class="about-highlight-item"><span class="about-highlight-dot"></span> خطط مخصصة</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SERVICES SECTION ==================== -->
+    <section class="section" id="services">
+        <h2 class="section-title">المميزات <span class="accent">والخدمات</span></h2>
+        <p class="section-subtitle">كل اللي تحتاجه عشان توصل لهدفك في مكان واحد</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="service-icon">📌</span>
+                <h3>برنامج تمرين مخصص</h3>
+                <p>برنامج تمرين مخصص ومعدل حسب مستواك وأهدافك، سواء في الجيم أو البيت.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">📌</span>
+                <h3>نظام غذائي مرن</h3>
+                <p>نظام غذائي مرن ومحسوب السعرات بدون حرمان، يناسب روتينك اليومي وأكلاتك المفضلة.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">📌</span>
+                <h3>متابعة أونلاين مستمرة</h3>
+                <p>متابعة أونلاين مستمرة لتعديل الخطط وتطوير الأداء أول بأول عشان نضمن أفضل نتيجة.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PRICING SECTION ==================== -->
+    <section class="section" id="pricing">
+        <h2 class="section-title">باقات <span class="accent">الاشتراك</span></h2>
+        <p class="section-subtitle">اختار الباقة المناسبة لك وابدأ رحلتك اليوم</p>
+        <div class="pricing-grid">
+            <!-- Card 1 -->
+            <div class="pricing-card">
+                <span class="pricing-emoji">💰</span>
+                <h3>باقة الشهر الواحد</h3>
+                <div class="pricing-amount">200 ج</div>
+                <p class="pricing-period">شهر واحد</p>
+                <button class="btn-subscribe" onclick="handleSubscribe('باقة الشهر الواحد', '200 جنيه')">اشترك الآن</button>
+            </div>
+            <!-- Card 2 - Featured -->
+            <div class="pricing-card featured">
+            <span class="pricing-emoji">💰</span>
+                <h3>باقة الشهرين</h3>
+                <div class="pricing-amount">350 ج</div>
+                <p class="pricing-period">شهرين</p>
+                <button class="btn-subscribe" onclick="handleSubscribe('باقة الشهرين', '350 جنيه')">اشترك الآن</button>
+            </div>
+            <!-- Card 3 -->
+            <div class="pricing-card">
+                <span class="pricing-emoji">💰</span>
+                <h3>باقة الـ 3 شهور</h3>
+                <div class="pricing-amount">500 ج</div>
+                <p class="pricing-period">3 شهور</p>
+                <button class="btn-subscribe" onclick="handleSubscribe('باقة الـ 3 شهور', '500 جنيه')">اشترك الآن</button>
+            </div>
+            <!-- Card 4 -->
+            <div class="pricing-card">
+                <span class="pricing-emoji">💰</span>
+                <h3>باقة الـ 6 شهور</h3>
+                <div class="pricing-amount">1000 ج</div>
+                <p class="pricing-period">6 شهور</p>
+                <button class="btn-subscribe" onclick="handleSubscribe('باقة الـ 6 شهور', '1000 جنيه')">اشترك الآن</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer" id="contact">
+        <div class="footer-inner">
+            <h3>📩 للحجز والاستفسار ابعت رسالة</h3>
+            <p>كابتن نورهان الماطونى - تدريب أونلاين</p>
+            <a href="https://wa.me/201098573396" target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
+                <span class="whatsapp-icon">💬</span> تواصل عبر واتساب: 01098573396
+            </a>
+            <p class="footer-bottom">
+                جميع الحقوق محفوظة © <span>Cap / Nourhan Elmatony</span> - 2025
+            </p>
+        </div>
+    </footer>
+
+    <!-- ==================== LOGIN / SIGN UP MODAL ==================== -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="authModal">
+            <button class="modal-close" id="modalClose" aria-label="إغلاق">&times;</button>
+            <div class="modal-tabs">
+                <button class="modal-tab active" data-tab="login">تسجيل الدخول</button>
+                <button class="modal-tab" data-tab="signup">إنشاء حساب</button>
+            </div>
+
+            <!-- Login Form -->
+            <form class="modal-form" id="loginForm" onsubmit="handleLogin(event)">
+                <input type="email" placeholder="البريد الإلكتروني" required autocomplete="email">
+                <input type="password" placeholder="كلمة المرور" required autocomplete="current-password" minlength="6">
+                <button type="submit" class="btn-submit">تسجيل الدخول</button>
+                <p class="modal-switch-text">
+                    ليس لديك حساب؟ <span onclick="switchTab('signup')">إنشاء حساب جديد</span>
+                </p>
+            </form>
+
+            <!-- Sign Up Form (hidden by default) -->
+            <form class="modal-form" id="signupForm" style="display:none;" onsubmit="handleSignup(event)">
+                <input type="text" placeholder="الاسم الكامل" required autocomplete="name">
+                <input type="email" placeholder="البريد الإلكتروني" required autocomplete="email">
+                <input type="password" placeholder="كلمة المرور (6 أحرف على الأقل)" required autocomplete="new-password" minlength="6">
+                <input type="password" placeholder="تأكيد كلمة المرور" required minlength="6">
+                <button type="submit" class="btn-submit">إنشاء حساب</button>
+                <p class="modal-switch-text">
+                    لديك حساب بالفعل؟ <span onclick="switchTab('login')">تسجيل الدخول</span>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+    <!-- ==================== SCRIPTS ==================== -->
+    <script>
+        (function() {
+            // ============ DOM ELEMENTS ============
+            const header = document.getElementById('header');
+            const mobileToggle = document.getElementById('mobileToggle');
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileOverlay = document.getElementById('mobileOverlay');
+            const modalOverlay = document.getElementById('modalOverlay');
+            const modalClose = document.getElementById('modalClose');
+            const btnLoginOpen = document.getElementById('btnLoginOpen');
+            const btnLoginOpenMobile = document.getElementById('btnLoginOpenMobile');
+            const toast = document.getElementById('toast');
+            const allNavLinks = document.querySelectorAll('.nav-links a, .mobile-nav a[href^="#"]');
+            const modalTabs = document.querySelectorAll('.modal-tab');
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+
+            // ============ HEADER SCROLL EFFECT ============
+            function updateHeader() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            }
+            window.addEventListener('scroll', updateHeader, { passive: true });
+            updateHeader();
+
+            // ============ ACTIVE NAV LINK ON SCROLL ============
+            const sections = document.querySelectorAll('section[id]');
+            function updateActiveNavLink() {
+                let currentId = '';
+                const scrollPos = window.scrollY + 120;
+                sections.forEach(section => {
+                    const top = section.offsetTop;
+                    const height = section.offsetHeight;
+                    if (scrollPos >= top && scrollPos < top + height) {
+                        currentId = section.getAttribute('id');
+                    }
+                });
+                allNavLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + currentId) {
+                        link.classList.add('active');
+                    }
+                });
+                // Also update mobile nav links
+                const mobileLinks = mobileNav.querySelectorAll('a[href^="#"]');
+                mobileLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + currentId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            window.addEventListener('scroll', updateActiveNavLink, { passive: true });
+
+            // ============ MOBILE MENU ============
+            function openMobileMenu() {
+                mobileNav.classList.add('open');
+                mobileOverlay.classList.add('show');
+                mobileToggle.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMobileMenu() {
+                mobileNav.classList.remove('open');
+                mobileOverlay.classList.remove('show');
+                mobileToggle.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            mobileToggle.addEventListener('click', () => {
+                if (mobileNav.classList.contains('open')) {
+                    closeMobileMenu();
+                } else {
+                    openMobileMenu();
+                }
+            });
+            mobileOverlay.addEventListener('click', closeMobileMenu);mobileNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    closeMobileMenu();
+                });
+            });
+            // Close mobile menu on escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    if (mobileNav.classList.contains('open')) closeMobileMenu();
+                    if (modalOverlay.classList.contains('active')) closeModal();
+                }
+            });
+
+            // ============ MODAL ============
+            function openModal() {
+                modalOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                // Reset to login tab
+                switchTab('login');
+            }
+
+            function closeModal() {
+                modalOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+                // Clear forms
+                loginForm.reset();
+                signupForm.reset();
+            }
+            btnLoginOpen.addEventListener('click', openModal);
+            btnLoginOpenMobile.addEventListener('click', () => {
+                closeMobileMenu();
+                // Small delay so mobile menu closes first
+                setTimeout(openModal, 300);
+            });
+            modalClose.addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) {
+                    closeModal();
+                }
+            });
+
+            // ============ TAB SWITCHING ============
+            window.switchTab = function(tabName) {
+                modalTabs.forEach(tab => tab.classList.remove('active'));
+                const targetTab = document.querySelector(.modal-tab[data-tab="${tabName}"]);
+                if (targetTab) targetTab.classList.add('active');
+
+                if (tabName === 'login') {
+                    loginForm.style.display = 'flex';
+                    signupForm.style.display = 'none';
+                } else {
+                    loginForm.style.display = 'none';
+                    signupForm.style.display = 'flex';
+                }
+            };
+            modalTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    switchTab(tab.getAttribute('data-tab'));
+                });
+            });
+
+            // ============ TOAST NOTIFICATION ============
+            let toastTimer;
+
+            function showToast(message, type = '') {
+                clearTimeout(toastTimer);
+                toast.textContent = message;
+                toast.className = 'toast ' + type;
+                // Force reflow
+                toast.offsetHeight;
+                toast.classList.add('show');
+                toastTimer = setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+
+            // ============ LOGIN HANDLER ============
+            window.handleLogin = function(event) {
+                event.preventDefault();
+                const email = loginForm.querySelector('input[type="email"]').value;
+                // Simulate login (in production, this would call a backend API)
+                showToast('✅ تم تسجيل الدخول بنجاح! أهلاً بك يا ' + email.split('@')[0], 'success');
+                setTimeout(() => {
+                    closeModal();
+                    loginForm.reset();
+                }, 1500);
+            };
+
+            // ============ SIGNUP HANDLER ============
+            window.handleSignup = function(event) {
+                event.preventDefault();
+                const inputs = signupForm.querySelectorAll('input');
+                const name = inputs[0].value;const password = inputs[2].value;
+                const confirmPassword = inputs[3].value;
+                if (password !== confirmPassword) {
+                    showToast('❌ كلمات المرور غير متطابقة. حاول مرة أخرى.', 'error');
+                    return;
+                }
+                if (password.length < 6) {
+                    showToast('❌ يجب أن تكون كلمة المرور 6 أحرف على الأقل.', 'error');
+                    return;
+                }
+                // Simulate signup
+                showToast('🎉 تم إنشاء الحساب بنجاح! مرحباً بك يا ' + name, 'success');
+                setTimeout(() => {
+                    closeModal();
+                    signupForm.reset();
+                    switchTab('login');
+                }, 1500);
+            };
+
+            // ============ SUBSCRIBE HANDLER ============
+            window.handleSubscribe = function(planName, planPrice) {
+                showToast('📩 شكراً لاختيارك ' + planName + ' (' + planPrice +
+                    ') - سيتم تحويلك للواتساب للحجز.', 'success');
+                // Open WhatsApp with a pre-filled message
+                const message = encodeURIComponent('مرحباً كابتن نورهان، أريد الاشتراك في ' + planName + ' (' +
+                    planPrice + ')');
+                setTimeout(() => {
+                    window.open('https://wa.me/201098573396?text=' + message, '_blank', 'noopener,noreferrer');
+                }, 800);
+            };
+
+            // ============ SMOOTH SCROLL FOR ALL ANCHOR LINKS ============
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        const headerHeight = header.offsetHeight;
+                        const targetPosition = target.getBoundingClientRect().top + window
+                            .pageYOffset - headerHeight - 10;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // ============ INITIALIZATION ============
+            updateActiveNavLink();
+            console.log('🔥 موقع كابتن نورهان الماطونى جاهز | Cap / Nourhan Elmatony');
+            console.log('💪 تدريب أونلاين - ابدأ رحلة تغيير جسمك وصحتك الآن');
+        })();
+    </script>
+</body>
+</html>
